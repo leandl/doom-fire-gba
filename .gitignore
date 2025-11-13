@@ -1,0 +1,6 @@
+/.vscode
+/build
+/.vs
+*.sln
+*.vcxproj*
+/balatro-gba/x64/**

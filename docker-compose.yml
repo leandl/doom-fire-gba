@@ -1,0 +1,8 @@
+services:
+  devkit:
+    image: devkitpro/devkitarm:latest
+    working_dir: /doomfire
+    volumes:
+      - ./:/doomfire
+    user: "${UID-1000}:${GID-1000}"
+    command: ["sh", "-c", "make -j$(nproc)"]
