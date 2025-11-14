@@ -1,6 +1,7 @@
 #include "doom_fire.h"
 
 u8 fireDataStructure[FIRE_HEIGHT * FIRE_WIDTH];
+enum WindDirection currentWindDirection = WIND_DIRECTION_NONE;
 
 void DoomFire_createFireDataStructure() {
     for (int y = 0; y < FIRE_HEIGHT; y++) {
@@ -21,8 +22,30 @@ void DoomFire_createFireSourceStructure() {
 
 
 int getWindDirection(int currentPixelIndex, int decay) {
+    if (currentWindDirection == WIND_DIRECTION_LEFT) {
+        return currentPixelIndex - decay;
+    } else if (currentWindDirection == WIND_DIRECTION_RIGHT) {
+        return currentPixelIndex + decay;
+    }
+
     return currentPixelIndex; // sem vento
 }
+
+void DoomFire_addWindLeft(void) {
+    if (currentWindDirection == WIND_DIRECTION_LEFT) {
+        return;
+    }
+
+    currentWindDirection -= 1;
+};
+
+void DoomFire_addWindRight(void) {
+    if (currentWindDirection == WIND_DIRECTION_RIGHT) {
+        return;
+    }
+
+    currentWindDirection += 1;
+};
 
 void updateFireIntesityPerPixel(int currentPixelIndex) {
     int sizeFireDataStructure = FIRE_HEIGHT * FIRE_WIDTH;

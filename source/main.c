@@ -3,6 +3,17 @@
 #include "fire_color.h"
 #include "doom_fire.h"
 
+
+void changeWindDirection() {
+    if (key_hit(KEY_L)) {
+        DoomFire_addWindLeft();
+    } 
+    
+    if (key_hit(KEY_R)) {
+        DoomFire_addWindRight();
+    }
+}
+
 void changeFireColorPalette() {
     if (key_hit(KEY_RIGHT)) {
         FireColor_nextPalette();
@@ -31,6 +42,7 @@ int main(void)
 
         key_poll();
         changeFireColorPalette();
+        changeWindDirection();
 
         DoomFire_update();
         DoomFire_render();
