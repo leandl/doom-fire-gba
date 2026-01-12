@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "GBA",
+      "includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/../libtonc/include"
+      ],
+      "defines": ["GIT_HASH=\"undef\"", "GIT_DIRTY=\"-dirty\""]
+    }
+  ],
+  "version": 4
+}
